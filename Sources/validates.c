@@ -1,26 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   validates.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 13:31:24 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/17 13:50:44 by dmonteir         ###   ########.fr       */
+/*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
+/*   Updated: 2022/02/17 15:03:04 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_lstadd_back(t_node **lst, t_node *new)
-{
-	t_node	*ptr;
 
-	if (!new)
-		return ;
-	if (*lst == NULL)
-		*lst = new;
-	ptr = ft_lstlast(*lst);
-	ptr->next = new;
-	new->prev = lst;
+int	is_char_digit(char *str)
+{
+	size_t i;
+
+	i = 0;
+	while(i < ft_strlen(str))
+	{
+		if(!ft_isdigit(str[i]))
+			return(0);
+		i++;
+	}
+	return (1);
+}
+
+void	line_is_digit(int argc, char *argv)
+{
+	int i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (!is_char_digit(&argv[i]))
+			exit(1);
+		i++;
+	}
+}
+
+void	validate_command_line(int argc, char *argv)
+{
+	line_is_digit(argc, argv);
 }

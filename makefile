@@ -6,17 +6,18 @@
 #    By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 06:35:11 by dmonteir          #+#    #+#              #
-#    Updated: 2022/01/19 18:53:51 by dmonteir         ###   ########.fr        #
+#    Updated: 2022/02/17 15:12:43 by dmonteir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = clang
 CFLAGS = -Wall -Wextra -g3
-INCLUDE = ./includes/pipex.h
+INCLUDE = ./includes/push_swap.h
 LIBFT_PATH = Libft
 LIBFT = $(LIBFT_PATH)/libft.a
-FILES =			./main.c \
+FILES =			./Sources/main.c \
+				./Sources/validates.c \
 
 FILES_UTILS =
 

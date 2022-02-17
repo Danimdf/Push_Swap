@@ -6,11 +6,11 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:36:21 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/16 11:33:34 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:45:42 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 //conjunto de estruturas
 //aponta pra si mesma, é o prev
@@ -27,17 +27,7 @@
 //botar false no bool no create
 
 
-void check_errors(char **argc) {
-	if (argc == -1) {
-		write(2, "Error\n", 6);
-		exit(0);
-	}
-	if (argc == 0)
-		exit(0);
-}
-
-
-void init_stack(t_stack *stack) {
+void	init_stack(t_stack *stack) {
 	stack = (t_stack *)malloc(sizeof(stack));
 }
 
@@ -46,9 +36,14 @@ int	main(int argv, char **argc)
 	int numbers;
 	t_stack	stack;
 
-	if (argc == 1)
+	if (argc >= 2 || argc[1] != NULL)
+	{
+		validate_command_line(argc);
+	} else
+	{
+		write (2, "ERROR\n", 6);
 		exit(1);
-	check_errors(argc);
-	init_stack(&stack);
+	}
 
+	init_stack(&stack);
 }

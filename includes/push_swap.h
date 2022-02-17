@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/01/24 08:32:54 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:13:00 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@
 //oprev que ta no b vai jogar pra
 typedef struct s_node
 {
-	struct node *prev;
-	struct node *next;
+	struct s_node *prev;
+	struct s_node *next;
 	int		data;
-	bool	end;
 }	t_node;
 
 typedef struct s_stack
@@ -34,6 +33,8 @@ typedef struct s_stack
 }	t_stack;
 
 
-
 int	main(int argv, char **argc);
+void	validate_command_line(int argc, char *argv);
+void	line_is_digit(int argc, char *argv);
+int		is_char_digit(char *str);
 #endif
