@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/18 14:03:51 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/18 14:10:07 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_stack
 
 
 int	main(int argv, char **argc);
+// Validation functions
 void	validate_command_line(int argc, char **argv);
 void	line_is_digit(int argc, char **argv);
 int		is_char_digit(char *str);

@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/18 14:06:46 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/18 14:08:31 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	line_is_digit(int argc, char **argv)
 			write(2, "Error\n", 6);
 			exit(1);
 		}
-
 		i++;
 	}
 }
