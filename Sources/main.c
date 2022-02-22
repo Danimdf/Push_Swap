@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:36:21 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/18 14:41:13 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/22 08:35:25 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ int	main(int argc, char **argv)
 	{
 		validate_command_line(argc, argv);
 	} else
-		error();
-
+		{
+			printf("oii1");
+			error();
+		}
 	init_stack(&stack);
 }
