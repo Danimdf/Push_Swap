@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 14:13:55 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/17 10:48:04 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/18 15:13:56 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_node	*ft_lstnew(int content)
 		ptr->data = content;
 		ptr->next = NULL;
 		ptr->prev = NULL;
-		ptr->end = false;
 	}
 	return (ptr);
 }

@@ -6,12 +6,11 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/18 14:08:31 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/22 08:17:22 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
 
 int	is_char_digit(char *str)
 {
@@ -27,23 +26,64 @@ int	is_char_digit(char *str)
 	return (0);
 }
 
-void	line_is_digit(int argc, char **argv)
+/* int	is_value_duplicate (char *str)
 {
-	int i;
+	 size_t i;
+
+	i = 0;
+	printf("%s\n", str);
+	//exit(0);
+	while (i < ft_strlen(str))
+	 {
+		if (i < str)
+		{
+			printf("%c\n", str[i]);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+} */
+
+void	int_max_min(int argc, char **argv)
+{
+	int	i;
+	long	int_num;
+
+	i = 1;
+	while (i < argc)
+	{
+		int_num = ft_atoil(argv[i]);
+		if (int_num > INT_MAX || int_num < INT_MIN)
+			error();
+		i++;
+	}
+
+}
+
+void	digit_is_ok(int argc, char **argv)
+{
+	int	i;
 
 	i = 1;
 	while (i < argc)
 	{
 		if (is_char_digit(argv[i]) == 1)
 		{
-			write(2, "Error\n", 6);
-			exit(1);
+			printf("oii1");
+			error();
 		}
+/* 		else if (is_value_duplicate(argv[i]) == 1)
+		{
+			printf("oii2");
+			error();
+		} */
 		i++;
 	}
 }
 
 void	validate_command_line(int argc, char **argv)
 {
-	line_is_digit(argc, argv);
+	digit_is_ok(argc, argv);
+	int_max_min(argc, argv);
 }
