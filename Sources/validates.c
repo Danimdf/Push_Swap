@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/22 08:17:22 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/22 08:25:37 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	is_char_digit(char *str)
 	return (0);
 } */
 
-void	int_max_min(int argc, char **argv)
+void	digit_is_ok(int argc, char **argv)
 {
 	int	i;
 	long	int_num;
@@ -54,30 +54,12 @@ void	int_max_min(int argc, char **argv)
 	while (i < argc)
 	{
 		int_num = ft_atoil(argv[i]);
-		if (int_num > INT_MAX || int_num < INT_MIN)
-			error();
-		i++;
-	}
-
-}
-
-void	digit_is_ok(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
 		if (is_char_digit(argv[i]) == 1)
-		{
-			printf("oii1");
 			error();
-		}
-/* 		else if (is_value_duplicate(argv[i]) == 1)
-		{
-			printf("oii2");
+		/* else if (is_value_duplicate(argv[i]) == 1)
+			error(); */
+		else if (int_num > INT_MAX || int_num < INT_MIN)
 			error();
-		} */
 		i++;
 	}
 }
@@ -85,5 +67,4 @@ void	digit_is_ok(int argc, char **argv)
 void	validate_command_line(int argc, char **argv)
 {
 	digit_is_ok(argc, argv);
-	int_max_min(argc, argv);
 }
