@@ -6,16 +6,22 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 17:24:55 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/22 08:16:08 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/24 10:38:06 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	ft_atoil(const char *nptr)
+
+static	void error(void) {
+	write (2, "ERROR\n", 6);
+	exit(1);
+}
+
+long int	ft_atoim(const char *nptr)
 {
-	long int	num;
-	long int	sign;
+	long num;
+	int	sign;
 	int	i;
 
 	i = 0;
@@ -34,5 +40,7 @@ long int	ft_atoil(const char *nptr)
 		num = num * 10 + nptr[i] - '0';
 		i++;
 	}
+	if ((num * sign) > INT_MAX || (num * sign) < INT_MIN)
+		error();
 	return (num * sign);
 }

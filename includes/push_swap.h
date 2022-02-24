@@ -6,15 +6,12 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/22 11:38:00 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/24 10:56:05 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
 
 # include <stdio.h>
 # include "../Libft/libft.h"
@@ -41,8 +38,7 @@ int	main(int argv, char **argc);
 
 void error(void);
 // Validation functions
-int		is_value_duplicate (int argc, long *argv);
-void	validate_command_line(int argc, char **argv);
+int		is_value_duplicate (int argc, int *num);
+void	validate_command_line(int argc, char *argv[]);
 void	digit_is_ok(int argc, char **argv);
-int		is_char_digit(char *str);
 #endif

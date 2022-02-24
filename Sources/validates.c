@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/22 11:59:46 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:08:54 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,58 +26,59 @@ int	is_char_digit(char *str)
 	return (0);
 }
 
-int	is_value_duplicate (int argc, long *num)
+/* int	is_value_duplicate (int argc, int *num)
 {
-	size_t	i;
-	size_t	j;
-	size_t	k;
-	int	aux;
+	int	i;
+	//int	j;
+	//int	aux;
+	int *tmp;
 
-
-	i = 0;
-	printf("%ld\n", num);
-	printf("oiii3");
+	i = 1;
+	//printf("%d\n", argc);
+	tmp = (int *) ft_calloc(argc, sizeof(int));
 	while (i < argc)
+	{
+		tmp[i] = *num;
+		i++;
+	}
+	printf("%d\n", *tmp); */
+	/* while (i < argc)
 	 {
-		 printf("oiii2");
-		j = 0;
+		j = i;
 		while (j < argc)
 		{
-			if (num[i] < num[j])
+			if (num[i] > num[j])
 			{
 				aux = num[i];
 				num[i] = num[j];
 				num[j] = aux;
+				printf("%d\n", *num);
 			}
 			j++;
 		}
 		i++;
-		printf("oiii1");
-	}
-	k = 0;
-	while (k < argc)
-	{
-		printf("%s\n", num[k]);
-		k++;
-	}
-	return (0);
-}
+	} */
+/* 	while(j < argc)
+		{
+			j = i + 1;
+			if (num[i] == num[j])
+				return(1);
+			j++;
+		} */
 
-void	digit_is_ok(int argc, char **argv)
+void	digit_is_ok(int argc, char *argv[])
 {
 	int	i;
-	long	int_num;
+	//intclear
+		int_num;
 
 	i = 1;
 	while (i < argc)
 	{
-		int_num = ft_atoil(argv[i]);
 		if (is_char_digit(argv[i]) == 1)
 			error();
-		else if (is_value_duplicate(argc, int_num) == 0)
-			error();
-		else if (int_num > INT_MAX || int_num < INT_MIN)
-			error();
+		/* else if (is_value_duplicate(argc, &int_num) == 1)
+			error(); */
 		i++;
 	}
 }

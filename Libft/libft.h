@@ -6,12 +6,15 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:55:46 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/22 08:16:17 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/24 09:17:07 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -36,7 +39,7 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
-long int	ft_atoil(const char *str);
+long int	ft_atoim(const char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
