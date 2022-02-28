@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/24 10:56:05 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/28 17:00:56 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,20 @@ typedef struct s_stack
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
+	int		size_stack;
 }	t_stack;
 
 
 int	main(int argv, char **argc);
+long int	ft_atoim(const char *nptr);
 
+//utils linked doubly list
+void	ft_lstadd_back(t_node **lst, t_node *new);
+void	*ft_lstnew(int content);
+t_node	*ft_lstlast(t_node *lst);
 
 void error(void);
 // Validation functions
-int		is_value_duplicate (int argc, int *num);
-void	validate_command_line(int argc, char *argv[]);
-void	digit_is_ok(int argc, char **argv);
+int		is_value_duplicate (t_node *stack_a, int num);
+void	validate_command_line(t_stack *stack, int argc, char *argv[]);
 #endif

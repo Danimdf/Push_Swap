@@ -6,17 +6,11 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 17:24:55 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/24 10:38:06 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/28 17:00:37 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-
-static	void error(void) {
-	write (2, "ERROR\n", 6);
-	exit(1);
-}
+#include "../includes/push_swap.h"
 
 long int	ft_atoim(const char *nptr)
 {

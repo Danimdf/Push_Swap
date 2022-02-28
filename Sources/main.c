@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:36:21 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/23 14:58:29 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:18:43 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ void	error(void) {
 }
 
 void	init_stack(t_stack *stack) {
-	stack = (t_stack *)malloc(sizeof(stack));
+	stack->stack_a = NULL;
+	stack->stack_b = NULL;
+	stack->size_stack = 0;
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
 
+	init_stack(&stack);
 	if (argc >= 2 || argv[1] != NULL)
 	{
-		validate_command_line(argc, argv);
+		validate_command_line(&stack, argc, argv);
 	} else
-	{
-		printf("oii1");
 		error();
-	}
-	init_stack(&stack);
+
 }

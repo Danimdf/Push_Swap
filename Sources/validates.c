@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/24 11:08:54 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/28 17:21:28 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,65 +26,34 @@ int	is_char_digit(char *str)
 	return (0);
 }
 
-/* int	is_value_duplicate (int argc, int *num)
+int	is_value_duplicate (t_node *stack_a, int num)
 {
-	int	i;
-	//int	j;
-	//int	aux;
-	int *tmp;
-
-	i = 1;
-	//printf("%d\n", argc);
-	tmp = (int *) ft_calloc(argc, sizeof(int));
-	while (i < argc)
+	 //printf("oiii");
+	printf("%d\n", num);
+	while (stack_a)
 	{
-		tmp[i] = *num;
-		i++;
+		if (stack_a->data == num)
+			return (1);
+		stack_a = stack_a->next;
 	}
-	printf("%d\n", *tmp); */
-	/* while (i < argc)
-	 {
-		j = i;
-		while (j < argc)
-		{
-			if (num[i] > num[j])
-			{
-				aux = num[i];
-				num[i] = num[j];
-				num[j] = aux;
-				printf("%d\n", *num);
-			}
-			j++;
-		}
-		i++;
-	} */
-/* 	while(j < argc)
-		{
-			j = i + 1;
-			if (num[i] == num[j])
-				return(1);
-			j++;
-		} */
-
-void	digit_is_ok(int argc, char *argv[])
-{
-	int	i;
-	//intclear
-		int_num;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (is_char_digit(argv[i]) == 1)
-			error();
-		/* else if (is_value_duplicate(argc, &int_num) == 1)
-			error(); */
-		i++;
-	}
+	return (0);
 }
 
-void	validate_command_line(int argc, char **argv)
+void	validate_command_line(t_stack *stack, int argc, char *argv[])
 {
-	digit_is_ok(argc, argv);
-	//is_value_duplicate(argc, argv);
+	int	i;
+	int	num;
+
+	i = 1;
+	while (i < argc)
+	{
+		num = ft_atoim(argv[i]);
+		if (is_char_digit(argv[i]) == 1)
+			error();
+		else if (is_value_duplicate(stack->stack_a, num) == 1)
+			error();
+		ft_lstadd_back(&(stack->stack_a), ft_lstnew(num));
+		i++;
+	}
+	stack->size_stack = argc - 1;
 }

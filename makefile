@@ -6,7 +6,7 @@
 #    By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 06:35:11 by dmonteir          #+#    #+#              #
-#    Updated: 2022/02/18 10:13:20 by dmonteir         ###   ########.fr        #
+#    Updated: 2022/02/28 17:01:25 by dmonteir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,10 @@ LIBFT_PATH = ./Libft
 LIBFT = $(LIBFT_PATH)/libft.a
 FILES =			./Sources/main.c \
 				./Sources/validates.c \
+				./Libft/ft_atoi.c \
+				./Libft/ft_lstadd_back.c \
+				./Libft/ft_lstnew.c \
+				./Libft/ft_lstlast.c \
 
 
 RM = rm -f
