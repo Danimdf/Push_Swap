@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/28 17:21:28 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/28 17:39:57 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	is_char_digit(char *str)
 
 int	is_value_duplicate (t_node *stack_a, int num)
 {
-	 //printf("oiii");
-	printf("%d\n", num);
 	while (stack_a)
 	{
 		if (stack_a->data == num)
