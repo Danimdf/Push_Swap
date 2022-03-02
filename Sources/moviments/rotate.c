@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 16:47:17 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/28 18:17:57 by dmonteir         ###   ########.fr       */
+/*   Created: 2022/03/02 17:44:34 by dmonteir          #+#    #+#             */
+/*   Updated: 2022/03/02 17:56:38 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+# include "../../includes/push_swap.h"
 
-int	ft_lstsize(t_node *lst)
+void rotate_a ()
 {
-	int	i;
-
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
+	printf("2");
 }

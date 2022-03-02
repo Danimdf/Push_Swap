@@ -6,7 +6,7 @@
 #    By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 06:35:11 by dmonteir          #+#    #+#              #
-#    Updated: 2022/02/28 17:01:25 by dmonteir         ###   ########.fr        #
+#    Updated: 2022/03/02 11:58:06 by dmonteir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,29 +18,33 @@ LIBFT_PATH = ./Libft
 LIBFT = $(LIBFT_PATH)/libft.a
 FILES =			./Sources/main.c \
 				./Sources/validates.c \
-				./Libft/ft_atoi.c \
+				./Sources/order.c \
+				./Sources/moviments/swap.c \
+
+LIBFT_BONUS_UTILS = ./Libft/ft_atoi.c \
 				./Libft/ft_lstadd_back.c \
 				./Libft/ft_lstnew.c \
 				./Libft/ft_lstlast.c \
-
+				./Libft/ft_lstsize.c \
 
 RM = rm -f
 OBJS = $(FILES:.c=.o)
+OBJS_UTILS = $(LIBFT_BONUS_UTILS:.c=.o)
 
 all:		$(NAME) $(INCLUDE)
 
-$(NAME):	$(OBJS) $(LIBFT)
-			$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+$(NAME):	$(OBJS) $(OBJS_UTILS) $(LIBFT)
+			$(CC) $(CFLAGS) $(OBJS) $(OBJS_UTILS) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 			make -C $(LIBFT_PATH)
 
 clean:
-			$(RM) $(OBJS)
+			$(RM) $(OBJS) $(OBJS_UTILS)
 			make clean -C $(LIBFT_PATH)
 
 fclean:
-			$(RM) $(NAME) $(OBJS)
+			$(RM) $(NAME) $(OBJS) $(OBJS_UTILS)
 			make fclean -C $(LIBFT_PATH)
 
 re:			fclean all

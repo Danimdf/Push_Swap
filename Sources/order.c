@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   order.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 16:47:17 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/28 18:17:57 by dmonteir         ###   ########.fr       */
+/*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
+/*   Updated: 2022/03/02 19:18:19 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+# include "../includes/push_swap.h"
 
-int	ft_lstsize(t_node *lst)
+void order (t_stack *stack)
 {
-	int	i;
+	int	list_size;
 
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
+	list_size = ft_lstsize(stack->stack_a);
+	if (list_size <= 3)
+		order_three(stack, list_size);
+}
+
+void order_three(t_stack *stack, int list_size)
+{
+	swap_a(stack, list_size);
 }

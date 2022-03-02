@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:55:46 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/28 16:52:25 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:07:19 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_putnbr_fd(int n, int fd);
 
 //t_node	*ft_lstnew(int content);
 //void	ft_lstadd_front(t_node **lst, t_node *new);
-int		ft_lstsize(t_list *lst);
+//int		ft_lstsize(t_list *lst);
 //t_list	*ft_lstlast(t_list *lst);
 //void	ft_lstadd_back(t_node **lst, t_node *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));

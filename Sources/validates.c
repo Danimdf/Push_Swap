@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/28 17:39:57 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:19:09 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,14 @@ void	validate_command_line(t_stack *stack, int argc, char *argv[])
 {
 	int	i;
 	int	num;
+	int first_num;
 
 	i = 1;
 	while (i < argc)
 	{
 		num = ft_atoim(argv[i]);
+		first_num = ft_atoim(argv[1]);
+		stack->first_number_a = first_num;
 		if (is_char_digit(argv[i]) == 1)
 			error();
 		else if (is_value_duplicate(stack->stack_a, num) == 1)
@@ -53,5 +56,4 @@ void	validate_command_line(t_stack *stack, int argc, char *argv[])
 		ft_lstadd_back(&(stack->stack_a), ft_lstnew(num));
 		i++;
 	}
-	stack->size_stack = argc - 1;
 }
