@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/03 08:14:12 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:29:02 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,20 @@ typedef struct s_stack
 }	t_stack;
 
 
-int	main(int argv, char **argc);
-long int	ft_atoim(const char *nptr);
-void print_me(t_stack *swap);
+int		main(int argv, char **argc);
+long	int	ft_atoim(const char *nptr);
+void	print_me(t_node *swap);
 
 //sort functions
 void	order (t_stack *stack);
-void order_three(t_stack *stack, int list_size);
+void	order_three(t_stack *stack, int list_size);
 
 //moviments
-void swap_a (t_stack *stack, int list_size);
-void swap_b (t_stack *stack, int list_size);
-void swap_s (t_stack *stack, int list_size);
+void	swap_a (t_stack *stack, int list_size);
+void	swap_b (t_stack *stack, int list_size);
+void	swap_s (t_stack *stack, int list_size);
+
+void rotate_a (t_stack *stack, int list_size);
 
 //utils linked doubly list
 void	ft_lstadd_back(t_node **lst, t_node *new);
