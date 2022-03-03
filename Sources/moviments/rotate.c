@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 17:44:34 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/03 18:32:51 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:36:29 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,15 @@ void rotate_a(t_stack *stack, int list_size)
 	ft_lstadd_back(&(stack->stack_a), temp);
 }
 
+void rotate_b(t_stack *stack, int list_size)
+{
+	t_node *temp;
+
+	if (list_size == 1)
+		return ;
+	temp = stack->stack_b;
+	stack->stack_b = stack->stack_b->next;
+	stack->stack_b->prev = NULL;
+	ft_lstadd_back(&(stack->stack_b), temp);
+}
 
