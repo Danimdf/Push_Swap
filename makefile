@@ -6,13 +6,13 @@
 #    By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 06:35:11 by dmonteir          #+#    #+#              #
-#    Updated: 2022/03/02 11:58:06 by dmonteir         ###   ########.fr        #
+#    Updated: 2022/03/03 08:07:21 by dmonteir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = clang
-CFLAGS = -Wall -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra -g3
 INCLUDE = ./includes/push_swap.h
 LIBFT_PATH = ./Libft
 LIBFT = $(LIBFT_PATH)/libft.a
