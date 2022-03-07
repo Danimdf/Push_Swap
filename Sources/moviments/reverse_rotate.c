@@ -6,19 +6,34 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 09:16:31 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/07 14:29:08 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:13:56 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-/* void	reverse_rotate(t_stack *stack)
+void	reverse_rotate_a(t_stack **stack)
 {
-	t_node *temp;
-	t_node stack_;
+	int	value_remove;
 
-	stack_b = stack
-	temp->prev->next = NULL;
-	temp->prev = NULL;
+	if ((*stack)->stack_a)
+		rmv_back_and_add(&((*stack)->stack_a), &value_remove);
+	write(2, "rra\n", 4);
+}
 
-} */
+void	rmv_back_and_add(t_node **stack_mv, int *value_move)
+{
+	t_node	*temp;
+
+	temp = (*stack_mv);
+	if (temp != NULL)
+	{
+		while (temp->next != NULL)
+			temp = temp->next;
+		*value_move = temp->data;
+		temp = temp->prev;
+		free(temp->next);
+		temp->next = NULL;
+	}
+	ft_lstadd_front(stack_mv, ft_lstnew(*value_move));
+}
