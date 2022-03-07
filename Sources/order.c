@@ -6,13 +6,13 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/07 13:25:41 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:30:59 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-void	order (t_stack *stack)
+void	order(t_stack *stack)
 {
 	int	list_size;
 
@@ -31,13 +31,12 @@ void	order_three(t_stack **stack)
 	//print_me((*stack)->stack_b);
 }
 
-
-void print_me(t_node *swap)
+void	print_me(t_node *swap)
 {
-    while (swap)
-    {
-        printf("%d\n", swap->data);
-        swap = swap->next;
+	while (swap)
+	{
+		printf("%d\n", swap->data);
+		swap = swap->next;
 	}
 	printf("-----------\n");
 }

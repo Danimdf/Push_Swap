@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/03 08:00:23 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:31:46 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	is_char_digit(char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while(i < ft_strlen(str))
+	while (i < ft_strlen(str))
 	{
-		if(!ft_isdigit(str[i]))
-			return(1);
+		if (!ft_isdigit(str[i]))
+			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int	is_value_duplicate (t_node *stack_a, int num)
+int	is_value_duplicate(t_node *stack_a, int num)
 {
 	while (stack_a)
 	{
@@ -41,7 +41,7 @@ void	validate_command_line(t_stack *stack, int argc, char *argv[])
 {
 	int	i;
 	int	num;
-	int first_num;
+	int	first_num;
 
 	i = 1;
 	while (i < argc)

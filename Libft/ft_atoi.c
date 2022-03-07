@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 17:24:55 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/02/28 17:00:37 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:22:13 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long int	ft_atoim(const char *nptr)
 {
-	long num;
-	int	sign;
-	int	i;
+	long	num;
+	int		sign;
+	int		i;
 
 	i = 0;
 	num = 0;

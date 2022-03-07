@@ -6,18 +6,20 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:36:21 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/03 08:07:33 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:34:47 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	error(void) {
+void	error(void)
+{
 	write (2, "ERROR\n", 6);
 	exit(1);
 }
 
-void	init_stack(t_stack *stack) {
+void	init_stack(t_stack *stack)
+{
 	stack->stack_a = NULL;
 	stack->stack_b = NULL;
 	stack->size_stack = 0;
@@ -29,9 +31,8 @@ int	main(int argc, char **argv)
 
 	init_stack(&stack);
 	if (argc >= 2 || argv[1] != NULL)
-	{
 		validate_command_line(&stack, argc, argv);
-	} else
+	else
 		error();
 	order(&stack);
 }
