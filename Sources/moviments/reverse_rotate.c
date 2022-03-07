@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 13:31:24 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/05 08:45:13 by dmonteir         ###   ########.fr       */
+/*   Created: 2022/03/04 09:16:31 by dmonteir          #+#    #+#             */
+/*   Updated: 2022/03/05 10:30:00 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_lstadd_back(t_node **lst, t_node *new)
+/* void	reverse_rotate(t_stack *stack)
 {
-	t_node	*ptr;
+	t_node *temp;
+	t_node stack_;
 
-	if (!new)
-		return ;
-	if (*lst == NULL)
-		*lst = new;
-	ptr = ft_lstlast(*lst);
-	ptr->next = new;
-	new->prev = ptr;
-	new->next = NULL;
-}
+	stack_b = stack
+	temp->prev->next = NULL;
+	temp->prev = NULL;
+
+} */
+

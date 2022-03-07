@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/03 18:29:02 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/07 13:23:33 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,23 @@ void	print_me(t_node *swap);
 
 //sort functions
 void	order (t_stack *stack);
-void	order_three(t_stack *stack, int list_size);
+void	order_three(t_stack **stack);
 
 //moviments
 void	swap_a (t_stack *stack, int list_size);
 void	swap_b (t_stack *stack, int list_size);
 void	swap_s (t_stack *stack, int list_size);
+void	rotate_a (t_stack *stack, int list_size);
+void	rotate_b (t_stack *stack, int list_size);
+void	rotate_r (t_stack *stack, int list_size);
+void	reverse_rotate (t_node *stack);
+void	push_a (t_stack **stack);
+void	push_b (t_stack **stack);
+void	remove_head_and_add (t_stack **stack, t_node **stack_a, int *value_remove);
 
-void rotate_a (t_stack *stack, int list_size);
 
 //utils linked doubly list
+void	ft_lstadd_front(t_node **lst, t_node *new);
 void	ft_lstadd_back(t_node **lst, t_node *new);
 void	*ft_lstnew(int content);
 t_node	*ft_lstlast(t_node *lst);

@@ -6,7 +6,7 @@
 #    By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 06:35:11 by dmonteir          #+#    #+#              #
-#    Updated: 2022/03/03 18:13:08 by dmonteir         ###   ########.fr        #
+#    Updated: 2022/03/05 11:21:20 by dmonteir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,11 @@ FILES =			./Sources/main.c \
 				./Sources/order.c \
 				./Sources/moviments/swap.c \
 				./Sources/moviments/rotate.c \
+				./Sources/moviments/reverse_rotate.c \
+				./Sources/moviments/push.c \
 
 LIBFT_BONUS_UTILS = ./Libft/ft_atoi.c \
+				./Libft/ft_lstadd_front.c \
 				./Libft/ft_lstadd_back.c \
 				./Libft/ft_lstnew.c \
 				./Libft/ft_lstlast.c \
