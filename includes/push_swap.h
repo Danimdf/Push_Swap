@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/07 15:10:13 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:18:58 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	rotate_a(t_stack *stack, int list_size);
 void	rotate_b(t_stack *stack, int list_size);
 void	rotate_r(t_stack *stack, int list_size);
 void	reverse_rotate_a(t_stack **stack);
+void	reverse_rotate_b(t_stack **stack);
+void	reverse_rotate_r(t_stack **stack);
 void	push_a(t_stack **stack);
 void	push_b(t_stack **stack);
 void	rmv_head_and_add(t_stack **stack, t_node **stack_mv, int *value_move);
