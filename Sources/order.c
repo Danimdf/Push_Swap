@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/08 11:18:04 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/08 11:37:59 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,31 @@ void	order_three(t_stack **stack, int list_size)
 	}
 	if (list_size == 3)
 	{
-		if ((*stack)->stack_a->data - 1 == (*stack)->stack_a->next->data)
+		if ((*stack)->stack_a->next->data < (*stack)->stack_a->data)
 		{
-			swap_a(stack, list_size);
-			if ((*stack)->stack_a->next->data >  \
-			(*stack)->stack_a->next->next->data)
+			if ((*stack)->stack_a->next->next->data > \
+			(*stack)->stack_a->next->data && \
+			(*stack)->stack_a->next->next->data > (*stack)->stack_a->data)
+				swap_a(stack, list_size);
+			else if ((*stack)->stack_a->next->next->data < \
+			(*stack)->stack_a->next->data && \
+			(*stack)->stack_a->next->next->data < (*stack)->stack_a->data)
+			{
+				swap_a(stack, list_size);
 				reverse_rotate_a(stack);
-		} else if ((*stack)->stack_a->data > (*stack)->stack_a->next->data)
-			rotate_a(stack, list_size);
-		else if ((*stack)->stack_a->data + 2 == (*stack)->stack_a->next->data)
+			} else if ((*stack)->stack_a->next->next->data > \
+			(*stack)->stack_a->next->data && \
+			(*stack)->stack_a->next->next->data < (*stack)->stack_a->data)
+				rotate_a(stack, list_size);
+		}else if ((*stack)->stack_a->data < (*stack)->stack_a->next->data)
 		{
-			swap_a(stack, list_size);
-			rotate_a(stack, list_size);
-		} else
+			if ((*stack)->stack_a->data < (*stack)->stack_a->next->next->data)
+			{
+				swap_a(stack, list_size);
+				rotate_a(stack, list_size);
+			} else
 			reverse_rotate_a(stack);
+		}
 	}
 }
 
