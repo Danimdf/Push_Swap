@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/08 10:51:14 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/08 11:18:04 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,18 @@ void	order(t_stack *stack)
 	list_size = ft_lstsize(stack->stack_a);
 	if (list_size <= 3)
 		order_three(&stack, list_size);
+	/* else if (list_size <= 5)
+		order_five(&stack, list_size); */
 }
+
+/* void order_five(t_stack **stack, int list_size)
+{
+
+} */
 
 void	order_three(t_stack **stack, int list_size)
 {
-	print_me((*stack)->stack_a);
+
 	if (list_size == 2)
 	{
 		if ((*stack)->stack_a->data > (*stack)->stack_a->next->data)
@@ -37,15 +44,15 @@ void	order_three(t_stack **stack, int list_size)
 			if ((*stack)->stack_a->next->data >  \
 			(*stack)->stack_a->next->next->data)
 				reverse_rotate_a(stack);
-		}
+		} else if ((*stack)->stack_a->data > (*stack)->stack_a->next->data)
+			rotate_a(stack, list_size);
+		else if ((*stack)->stack_a->data + 2 == (*stack)->stack_a->next->data)
+		{
+			swap_a(stack, list_size);
+			rotate_a(stack, list_size);
+		} else
+			reverse_rotate_a(stack);
 	}
-	//swap_a(stack, list_size);
-	//print_me((*stack)->stack_a);
-	//rotate_a(*stack, list_size);
-	//reverse_rotate(stack->stack_a);
-	//push_a(stack);
-	//reverse_rotate_a(stack);
-	//print_me((*stack)->stack_a);
 }
 
 void	print_me(t_node *swap)
