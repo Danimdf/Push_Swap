@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/09 09:22:11 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/09 09:41:55 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,29 @@ void	order(t_stack *stack)
 		order_four(&stack, list_size);
 }
 
-void	order_four(t_stack **stack, int list_size)
+void	order_four(t_stack **stacks, int list_size)
 {
 	int min;
+	t_node *stack;
 
-	min = min_value((*stack)->stack_a);
+	print_me((*stacks)->stack_a);
+	stack = (*stacks)->stack_a;
+	min = min_value((*stacks)->stack_a);
 	printf("%d\n", min);
-	order_three(stack, list_size);
+	while (stack != NULL)
+	{
+		if (stack->data == min)
+		{
+			push_b(stacks);
+			break ;
+		}
+		stack = stack->next;
+		rotate_a(stacks, list_size);
+	}
+	order_three(stacks, list_size);
+	push_a(stacks);
+	print_me((*stacks)->stack_a);
+
 }
 
 int	min_value(t_node *stack)
