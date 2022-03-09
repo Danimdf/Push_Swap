@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/08 12:09:16 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/09 09:11:07 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	order(t_stack *stack);
 void	order_two(t_stack **stack, int list_size);
 void	order_three(t_stack **stk, int list_size);
 void	next_smaller(t_stack **stk, int list_size);
+void	order_four(t_stack **stack, int list_size);
+void	order_five(t_stack **stack, int list_size);
+int		min_value(t_node *stack);
 
 //moviments
 void	swap_a(t_stack **stack, int list_size);
