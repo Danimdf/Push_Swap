@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/09 09:41:55 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/09 09:46:18 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	order(t_stack *stack)
 		order_three(&stack, list_size);
 	else if (list_size == 4)
 		order_four(&stack, list_size);
+	else if (list_size == 5)
+		order_five(&stack, list_size);
 }
 
 void	order_four(t_stack **stacks, int list_size)
@@ -30,10 +32,8 @@ void	order_four(t_stack **stacks, int list_size)
 	int min;
 	t_node *stack;
 
-	print_me((*stacks)->stack_a);
 	stack = (*stacks)->stack_a;
 	min = min_value((*stacks)->stack_a);
-	printf("%d\n", min);
 	while (stack != NULL)
 	{
 		if (stack->data == min)
@@ -46,8 +46,6 @@ void	order_four(t_stack **stacks, int list_size)
 	}
 	order_three(stacks, list_size);
 	push_a(stacks);
-	print_me((*stacks)->stack_a);
-
 }
 
 int	min_value(t_node *stack)
@@ -69,20 +67,26 @@ int	min_value(t_node *stack)
 }
 
 
-/* void order_five(t_stack **stack, int list_size)
+void	order_five(t_stack **stacks, int list_size)
 {
-	print_me((*stack)->stack_a);
-	push_b(stack);
-	push_b(stack);
-	order_three(stack, list_size);
-	print_me((*stack)->stack_a);
-	push_a(stack);
-	print_me((*stack)->stack_a);
-	rotate_a(stack, list_size);
-	print_me((*stack)->stack_a);
-	push_a(stack);
-	print_me((*stack)->stack_a);
-} */
+	int min;
+	t_node *stack;
+
+	stack = (*stacks)->stack_a;
+	min = min_value((*stacks)->stack_a);
+	while (stack != NULL)
+	{
+		if (stack->data == min)
+		{
+			push_b(stacks);
+			break ;
+		}
+		stack = stack->next;
+		rotate_a(stacks, list_size);
+	}
+	order_four(stacks, list_size);
+	push_a(stacks);
+}
 
 void	order_two(t_stack **stack, int list_size)
 {
