@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/09 09:46:18 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/11 13:22:30 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,79 @@
 
 void	order(t_stack *stack)
 {
-	int	list_size;
+	int	list_size_a;
+	int	list_size_b;
 
-	list_size = ft_lstsize(stack->stack_a);
-	if (list_size == 2)
-		order_two(&stack, list_size);
-	else if (list_size == 3)
-		order_three(&stack, list_size);
-	else if (list_size == 4)
-		order_four(&stack, list_size);
-	else if (list_size == 5)
-		order_five(&stack, list_size);
+	list_size_a = ft_lstsize(stack->stack_a);
+	list_size_b = ft_lstsize(stack->stack_b);
+	if (list_size_a == 2)
+		order_two(&stack, list_size_a);
+	else if (list_size_a == 3)
+		order_three(&stack, list_size_a);
+	else if (list_size_a == 4)
+		order_four(&stack, list_size_a);
+	else if (list_size_a == 5)
+		order_five(&stack, list_size_a);
+	else
+		radix_sort(&stack, list_size_a, list_size_b);
+}
+
+int	get_max_bits(t_node **stack_a)
+{
+	t_node *stack;
+	int	max;
+	int	max_bits;
+
+	stack = (*stack_a);
+	max = stack->index;
+	max_bits = 0;
+
+	//printf("%d\n", stack->index);
+
+	while (stack != NULL)
+	{
+		//printf("oii");
+		if (stack->index > max)
+			max = stack->index;
+		stack = stack->next;
+		//stack->index++;
+		printf("%d\n", max);
+	}
+
+	while ((max >> max_bits) != 0)
+		max_bits++;
+	return (max_bits);
+}
+
+void	radix_sort(t_stack **stacks, int list_size_a, int list_size_b)
+{
+	int i;
+	int	j;
+	int	max_bits;
+	t_node *stack;
+
+	//printf("oiii");
+	stack = (*stacks)->stack_a;
+	i = 0;
+	max_bits = get_max_bits(&(stack));
+	//printf("%d\n", max_bits);
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < list_size_a)
+		{
+			if (((stack->index >> i) & 1) == 1)
+				rotate_a(stacks, list_size_a);
+			else
+				push_b(stacks);
+			//printf("oii2\n");;
+			j++;
+		}
+		while (list_size_b != 0)
+			push_a(stacks);
+		i++;
+	}
+	//print_me((*stacks)->stack_a);
 }
 
 void	order_four(t_stack **stacks, int list_size)
@@ -86,6 +148,7 @@ void	order_five(t_stack **stacks, int list_size)
 	}
 	order_four(stacks, list_size);
 	push_a(stacks);
+	print_me((*stacks)->stack_a);
 }
 
 void	order_two(t_stack **stack, int list_size)
@@ -96,7 +159,6 @@ void	order_two(t_stack **stack, int list_size)
 
 void	order_three(t_stack **stk, int list_size)
 {
-	//print_me((*stk)->stack_a);
 	if ((*stk)->stack_a->next->data < (*stk)->stack_a->data)
 		next_smaller(stk, list_size);
 	else if ((*stk)->stack_a->data < (*stk)->stack_a->next->data)
@@ -109,7 +171,6 @@ void	order_three(t_stack **stk, int list_size)
 		else
 			reverse_rotate_a(stk);
 	}
-	//print_me((*stk)->stack_a);
 }
 
 void	next_smaller(t_stack **stk, int list_size)

@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 11:56:24 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/08 10:35:24 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/11 13:35:11 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,32 @@
 void	swap_a(t_stack **stack, int list_size)
 {
 	int	temp;
+	int temp_index;
 
 	if (list_size == 1)
 		return ;
 	temp = (*stack)->stack_a->data;
 	(*stack)->stack_a->data = (*stack)->stack_a->next->data;
 	(*stack)->stack_a->next->data = temp;
+	temp_index = (*stack)->stack_a->index;
+	(*stack)->stack_a->index = (*stack)->stack_a->next->index;
+	(*stack)->stack_a->next->index = temp_index;
 	write(2, "sa\n", 3);
 }
 
 void	swap_b(t_stack **stack, int list_size)
 {
 	int	temp;
+	int temp_index;
 
 	if (list_size == 1)
 		return ;
 	temp = (*stack)->stack_b->data;
 	(*stack)->stack_b->data = (*stack)->stack_b->next->data;
 	(*stack)->stack_b->next->data = temp;
+	temp_index = (*stack)->stack_b->index;
+	(*stack)->stack_b->index = (*stack)->stack_b->next->index;
+	(*stack)->stack_b->next->index = temp_index;
 	write(2, "sb\n", 3);
 }
 

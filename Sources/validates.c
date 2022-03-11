@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/09 08:37:09 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/11 11:36:23 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void	validate_command_line(t_stack *stack, int argc, char *argv[])
 			error();
 		ft_lstadd_back(&(stack->stack_a), ft_lstnew(num));
 		i++;
+		stack->size_stack++;
 	}
 }

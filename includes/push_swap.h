@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/09 09:27:10 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/11 09:51:44 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 //oprev que ta no b vai jogar pra
 typedef struct s_node
 {
+	int				index;
 	struct s_node	*prev;
 	struct s_node	*next;
 	int				data;
@@ -44,6 +45,8 @@ void	order_three(t_stack **stk, int list_size);
 void	next_smaller(t_stack **stk, int list_size);
 void	order_four(t_stack **stacks, int list_size);
 void	order_five(t_stack **stack, int list_size);
+void	radix_sort(t_stack **stacks, int list_size_a, int list_size_b);
+int		get_max_bits(t_node **stack_a);
 int		min_value(t_node *stack);
 
 //moviments
