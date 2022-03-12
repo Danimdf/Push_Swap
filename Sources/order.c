@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 10:19:23 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 11:55:22 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,10 @@ void	order(t_stack *stack)
 	else if (list_size_a == 5)
 		order_five(&stack, list_size_a);
 	else
-	{
-		//printf("%d\n", stack->stack_a->data);
-		make_index_of_stack(&stack);
-	}
-
-		//radix_sort(&stack, list_size_a, list_size_b);
+		radix_sort(&stack, list_size_a, list_size_b);
 }
 
-void make_index_of_stack(t_stack **stacks)
+void make_index_of_stack(t_stack **stacks, t_node **stack)
 {
 	int		*array;
 	t_node	*temp;
@@ -46,7 +41,7 @@ void make_index_of_stack(t_stack **stacks)
 	if (!array)
 		error();
 	i = 0;
-	temp = (*stacks)->stack_a;
+	temp = (*stack);
 	while(temp != NULL)
 	{
 		array[i] = temp->data;
@@ -54,16 +49,10 @@ void make_index_of_stack(t_stack **stacks)
 		temp = temp->next;
 		i++;
 	}
-	print_me((*stacks)->stack_a);
-	//printf("%d\t%d\n", (*stacks)->stack_a->index, (*stacks)->stack_a->data);
-	//printf("%d\t%d\n", (*stacks)->stack_a->next->index, (*stacks)->stack_a->next->data);
-	//printf("%d\t%d\n", (*stacks)->stack_a->next->next->index, (*stacks)->stack_a->next->next->data);
-	//order_array(stacks, array);
-	//print_me(temp);
 	free(array);
 }
 
-/* int	get_max_bits(t_node **stack_a)
+int	get_max_bits(t_node **stack_a)
 {
 	t_node	*stack;
 	int		max;
@@ -83,13 +72,13 @@ void make_index_of_stack(t_stack **stacks)
 		//stack->index++;
 		//printf("%d\n", max);
 	}
-
 	while ((max >> max_bits) != 0)
 		max_bits++;
+	//printf("%d\n", max_bits);
 	return (max_bits);
-} */
+}
 
-/* void	radix_sort(t_stack **stacks, int list_size_a, int list_size_b)
+void	radix_sort(t_stack **stacks, int list_size_a, int list_size_b)
 {
 	int		i;
 	int		j;
@@ -97,55 +86,31 @@ void make_index_of_stack(t_stack **stacks)
 	t_node	*stack;
 
 
-	create_array(stacks);
+
 	stack = (*stacks)->stack_a;
 	i = 0;
-	max_bits = get_max_bits(&(stack));
-	print_me(stack);
+	make_index_of_stack(stacks, &(*stacks)->stack_a);
+	max_bits = get_max_bits(&(*stacks)->stack_a);
+	//print_me(stack);
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j < list_size_a)
+		while (stack != NULL)
 		{
-			if (((stack->index >> i) & 1) == 1)
+			if (((stack->index >> i) & 1) == 0)
 				rotate_a(stacks, list_size_a);
 			else
 				push_b(stacks);
 			//printf("oii2\n");;
-			j++;
+			stack = stack->next;
 		}
+		//printf("oiii1");
 		while (list_size_b != 0)
 			push_a(stacks);
 		i++;
 	}
-} */
-/*
-int	return_node(t_stack **stack, int i)
-{
-	int	temp;
-	t_node	*temp1;
-	int	node;
-
-	temp = 0;
-
-	while (temp <= (*stack)->size_stack)
-	{
-		temp1 = (*stack)->stack_a;
-		while (temp1 != NULL)
-		{
-			if (i == temp)
-			{
-				temp1->index = temp;
-				//printf("%d\n", temp);
-				node = temp1->data;
-			}
-			temp1 = temp1->next;
-		}
-		++temp;
-	}
-	printf("%d\n", node);
-	return (node);
-} */
+	//print_me((*stacks)->stack_a);
+}
 
 void	order_four(t_stack **stacks, int list_size)
 {
@@ -164,8 +129,14 @@ void	order_four(t_stack **stacks, int list_size)
 		stack = stack->next;
 		rotate_a(stacks, list_size);
 	}
+	print_me((*stacks)->stack_a);
+	print_me((*stacks)->stack_b);
+	//printf("%d\n", (*stacks)->stack_b->index);
 	order_three(stacks, list_size);
 	push_a(stacks);
+
+	print_me((*stacks)->stack_a);
+	print_me((*stacks)->stack_b);
 }
 
 int	min_value(t_node *stack)
@@ -206,7 +177,7 @@ void	order_five(t_stack **stacks, int list_size)
 	}
 	order_four(stacks, list_size);
 	push_a(stacks);
-	print_me((*stacks)->stack_a);
+	//print_me((*stacks)->stack_a);
 }
 
 void	order_two(t_stack **stack, int list_size)
@@ -253,7 +224,7 @@ void	print_me(t_node *swap)
 {
 	while (swap)
 	{
-		printf("%d\n", swap->index);
+		printf("%d\n", swap->data);
 		swap = swap->next;
 	}
 	printf("-----------\n");
