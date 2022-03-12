@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 10:20:55 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 13:29:49 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 17:11:12 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int *new_index)
 			free(temp);
 		}
 	}
-	stack_a_or_b(stack, value_move, stack_mv);
+	stack_a_or_b_front(stack, value_move, stack_mv);
 }
 
-void	stack_a_or_b(t_stack **stack, int *value_move, t_node **stack_mv)
+void	stack_a_or_b_front(t_stack **stack, int *value_move, t_node **stack_mv)
 {
 	if ((*stack_mv) == (*stack)->stack_a)
 		ft_lstadd_front(&(*stack)->stack_b, ft_lstnew(*value_move));

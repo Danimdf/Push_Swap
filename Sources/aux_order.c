@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:07:56 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 13:31:21 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 17:12:26 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ void	next_smaller(t_stack **stk, int list_size)
 	else if ((*stk)->stack_a->next->next->data > \
 	(*stk)->stack_a->next->data && \
 	(*stk)->stack_a->next->next->data < (*stk)->stack_a->data)
-		rotate_a(stk, list_size);
+		rotate_a(stk);
 }
