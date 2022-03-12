@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 11:42:12 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 13:28:32 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	next_smaller(t_stack **stk, int list_size);
 void	order_four(t_stack **stacks, int list_size);
 void	order_five(t_stack **stack, int list_size);
 void	radix_sort(t_stack **stacks, int list_size_a, int list_size_b);
-int		get_max_bits(t_node **stack_a);
-int		min_value(t_node *stack);
 
 //moviments
 void	swap_a(t_stack **stack, int list_size);
@@ -61,13 +59,16 @@ void	reverse_rotate_b(t_stack **stack);
 void	reverse_rotate_r(t_stack **stack);
 void	push_a(t_stack **stack);
 void	push_b(t_stack **stack);
-void	rmv_head_and_add(t_stack **stack, t_node **stack_mv, int *value_move, int *new_index);
-void	rmv_back_and_add(t_node **stack_mv, int *value_move);
 
 //auxiliaries
-void make_index_of_stack(t_stack **stacks, t_node **stack);
-
-int	return_node(t_stack **stack, int i);
+void	make_index_of_stack(t_stack **stacks, t_node **stack);
+int		return_node(t_stack **stack, int i);
+void	rmv_head_and_add(t_stack **stack, t_node **stack_mv, int *value_move, \
+int *new_index);
+void	rmv_back_and_add(t_node **stack_mv, int *value_move, int *new_index);
+int		get_max_bits(t_node **stack_a);
+int		min_value(t_node *stack);
+void	stack_a_or_b(t_stack **stack, int *value_move, t_node **stack_mv);
 
 //utils linked doubly list
 void	ft_lstadd_front(t_node **lst, t_node *new);
