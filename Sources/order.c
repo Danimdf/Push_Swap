@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/11 13:22:30 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 10:19:23 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,50 @@ void	order(t_stack *stack)
 	else if (list_size_a == 5)
 		order_five(&stack, list_size_a);
 	else
-		radix_sort(&stack, list_size_a, list_size_b);
+	{
+		//printf("%d\n", stack->stack_a->data);
+		make_index_of_stack(&stack);
+	}
+
+		//radix_sort(&stack, list_size_a, list_size_b);
 }
 
-int	get_max_bits(t_node **stack_a)
+void make_index_of_stack(t_stack **stacks)
 {
-	t_node *stack;
-	int	max;
-	int	max_bits;
+	int		*array;
+	t_node	*temp;
+	size_t	i;
+
+	array = (int *)malloc(sizeof(int) * (*stacks)->size_stack);
+	if (!array)
+		error();
+	i = 0;
+	temp = (*stacks)->stack_a;
+	while(temp != NULL)
+	{
+		array[i] = temp->data;
+		temp->index = i;
+		temp = temp->next;
+		i++;
+	}
+	print_me((*stacks)->stack_a);
+	//printf("%d\t%d\n", (*stacks)->stack_a->index, (*stacks)->stack_a->data);
+	//printf("%d\t%d\n", (*stacks)->stack_a->next->index, (*stacks)->stack_a->next->data);
+	//printf("%d\t%d\n", (*stacks)->stack_a->next->next->index, (*stacks)->stack_a->next->next->data);
+	//order_array(stacks, array);
+	//print_me(temp);
+	free(array);
+}
+
+/* int	get_max_bits(t_node **stack_a)
+{
+	t_node	*stack;
+	int		max;
+	int		max_bits;
 
 	stack = (*stack_a);
 	max = stack->index;
 	max_bits = 0;
-
 	//printf("%d\n", stack->index);
 
 	while (stack != NULL)
@@ -50,26 +81,27 @@ int	get_max_bits(t_node **stack_a)
 			max = stack->index;
 		stack = stack->next;
 		//stack->index++;
-		printf("%d\n", max);
+		//printf("%d\n", max);
 	}
 
 	while ((max >> max_bits) != 0)
 		max_bits++;
 	return (max_bits);
-}
+} */
 
-void	radix_sort(t_stack **stacks, int list_size_a, int list_size_b)
+/* void	radix_sort(t_stack **stacks, int list_size_a, int list_size_b)
 {
-	int i;
-	int	j;
-	int	max_bits;
-	t_node *stack;
+	int		i;
+	int		j;
+	int		max_bits;
+	t_node	*stack;
 
-	//printf("oiii");
+
+	create_array(stacks);
 	stack = (*stacks)->stack_a;
 	i = 0;
 	max_bits = get_max_bits(&(stack));
-	//printf("%d\n", max_bits);
+	print_me(stack);
 	while (i < max_bits)
 	{
 		j = 0;
@@ -86,13 +118,39 @@ void	radix_sort(t_stack **stacks, int list_size_a, int list_size_b)
 			push_a(stacks);
 		i++;
 	}
-	//print_me((*stacks)->stack_a);
-}
+} */
+/*
+int	return_node(t_stack **stack, int i)
+{
+	int	temp;
+	t_node	*temp1;
+	int	node;
+
+	temp = 0;
+
+	while (temp <= (*stack)->size_stack)
+	{
+		temp1 = (*stack)->stack_a;
+		while (temp1 != NULL)
+		{
+			if (i == temp)
+			{
+				temp1->index = temp;
+				//printf("%d\n", temp);
+				node = temp1->data;
+			}
+			temp1 = temp1->next;
+		}
+		++temp;
+	}
+	printf("%d\n", node);
+	return (node);
+} */
 
 void	order_four(t_stack **stacks, int list_size)
 {
-	int min;
-	t_node *stack;
+	int		min;
+	t_node	*stack;
 
 	stack = (*stacks)->stack_a;
 	min = min_value((*stacks)->stack_a);
@@ -131,8 +189,8 @@ int	min_value(t_node *stack)
 
 void	order_five(t_stack **stacks, int list_size)
 {
-	int min;
-	t_node *stack;
+	int		min;
+	t_node	*stack;
 
 	stack = (*stacks)->stack_a;
 	min = min_value((*stacks)->stack_a);
@@ -195,7 +253,7 @@ void	print_me(t_node *swap)
 {
 	while (swap)
 	{
-		printf("%d\n", swap->data);
+		printf("%d\n", swap->index);
 		swap = swap->next;
 	}
 	printf("-----------\n");

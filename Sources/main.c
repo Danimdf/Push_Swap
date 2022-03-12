@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:36:21 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/07 14:34:47 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 08:21:27 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	init_stack(t_stack *stack)
 	stack->stack_a = NULL;
 	stack->stack_b = NULL;
 	stack->size_stack = 0;
+	//stack->stack_a->index = 0;
 }
 
 int	main(int argc, char **argv)
