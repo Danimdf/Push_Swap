@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 18:18:24 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 20:55:45 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,11 @@ int *new_index);
 void	rmv_head_and_add_back(t_stack **stack, t_node **stack_mv, \
 int *value_move, int *new_index);
 void	rmv_back_and_add(t_node **stack_mv, int *value_move, int *new_index);
-int		get_max_bits(t_node **stack_a);
 int		min_value(t_node *stack);
 void	stack_a_or_b_front(t_stack **stack, int *value_move, t_node **stack_mv);
 void	stack_a_or_b_back(t_stack **stack, int *value_move, t_node **stack_mv);
+void	sorted(t_stack **stack, int **array);
+
 
 //utils linked doubly list
 void	ft_lstadd_front(t_node **lst, t_node *new);

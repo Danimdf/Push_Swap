@@ -6,36 +6,11 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:03:25 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 17:25:12 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 21:01:26 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	get_max_bits(t_node **stack_a)
-{
-	t_node	*stack;
-	int		max;
-	int		max_bits;
-
-	stack = (*stack_a);
-	max = stack->index;
-	max_bits = 0;
-	//printf("%d\n", stack->index);
-	while (stack)
-	{
-		//printf("oii");
-		if (stack->index > max)
-			max = stack->index;
-		stack = stack->next;
-		//stack->index++;
-		//printf("%d\n", max);
-	}
-	while ((max >> max_bits) != 0)
-		max_bits++;
-	//printf("%d\n", max_bits);
-	return (max_bits);
-}
 
 void	make_index_of_stack(t_stack **stacks, t_node **stack)
 {
@@ -51,11 +26,40 @@ void	make_index_of_stack(t_stack **stacks, t_node **stack)
 	while (temp != NULL)
 	{
 		array[i] = temp->data;
-		temp->index = i;
+		//temp->index = i;
 		temp = temp->next;
 		i++;
 	}
+	sorted(stacks, &array);
+
 	free(array);
+}
+
+void	sorted(t_stack **stack, int **array)
+{
+	int	i;
+	int	j;
+	int	size;
+	int	temp;
+
+	size = (*stack)->size_stack;
+	i = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (j < size - 1)
+		{
+			if ((*array)[j] > (*array)[j + 1])
+			{
+				temp = (*array)[j];
+				(*array)[j] = (*array)[j + 1];
+				(*array)[j + 1] = temp;
+			}
+			printf("%d\n", (*array)[j]);
+			j++;
+		}
+		i++;
+	}
 }
 
 void	radix_sort(t_stack **stacks)
@@ -68,12 +72,15 @@ void	radix_sort(t_stack **stacks)
 
 	i = 0;
 	stack = (*stacks)->stack_a;
+	bits = 0;
 	//printf("%d\n", (*stacks)->stack_a->data);
 	//printf("%d\n", stack->data);
-	bits = get_max_bits(&(*stacks)->stack_a);
 	size = ft_lstsize((*stacks)->stack_a);
 	//print_me(stack);
 
+	while (((*stacks)->size_stack >> bits) != 0)
+		bits++;
+	//printf("%d\n", bits);
 	while (i < bits)
 	{
 		j = 0;
@@ -93,6 +100,6 @@ void	radix_sort(t_stack **stacks)
 			push_a(stacks);
 		i++;
 	}
-	print_me((*stacks)->stack_a);
+	//print_me(stack);
 	//print_me((*stacks)->stack_b);
 }

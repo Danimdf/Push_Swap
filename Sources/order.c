@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 18:19:11 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 20:13:34 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	print_me(t_node *swap)
 {
 	while (swap)
 	{
-		printf("%d\n", swap->data);
+		printf("%d\n", swap->index);
 		swap = swap->next;
 	}
 	printf("-----------\n");
