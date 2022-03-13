@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:03:25 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 21:01:26 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/12 21:34:30 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,34 @@ void	make_index_of_stack(t_stack **stacks, t_node **stack)
 		i++;
 	}
 	sorted(stacks, &array);
-
+	make_index(stacks, stack, array);
 	free(array);
+}
+
+void	make_index(t_stack **stacks, t_node **stack_a, int *array)
+{
+	int		i;
+	t_node	*stack;
+	int		size;
+
+	size = (*stacks)->size_stack;
+	i = 0;
+	stack = (*stack_a);
+	while (i < size)
+	{
+		//stack = (*stacks)->stack_a;
+		while (stack != NULL)
+		{
+			if (array[i] == stack->data)
+			{
+				stack->index = i;
+				break;
+			}
+			//printf("%d\n", stack->index);
+			stack = stack->next;
+		}
+		i++;
+	}
 }
 
 void	sorted(t_stack **stack, int **array)
@@ -55,7 +81,6 @@ void	sorted(t_stack **stack, int **array)
 				(*array)[j] = (*array)[j + 1];
 				(*array)[j + 1] = temp;
 			}
-			printf("%d\n", (*array)[j]);
 			j++;
 		}
 		i++;
