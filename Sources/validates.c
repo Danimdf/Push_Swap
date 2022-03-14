@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 14:45:00 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/13 09:48:40 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 12:27:18 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_char_digit(char *str)
 	i = 0;
 	while (i < ft_strlen(str))
 	{
-		if (!ft_isdigit(str[i]))
+		if (ft_isdigit(str[i]) == 0)
 			return (1);
 		i++;
 	}
@@ -37,24 +37,23 @@ int	is_value_duplicate(t_node *stack_a, int num)
 	return (0);
 }
 
-void	validate_command_line(t_stack *stack, int argc, char *argv[])
+void	validate_command_line(t_stack *stacks)
 {
 	int	i;
 	int	num;
 	int	first_num;
 
 	i = 1;
-	while (i < argc)
+	while (i < stacks->argc)
 	{
-		num = ft_atoim(argv[i]);
-		first_num = ft_atoim(argv[1]);
-		stack->first_number_a = first_num;
-		if (is_char_digit(argv[i]) == 1)
+		num = ft_atoim(stacks->argv[i]);
+		first_num = ft_atoim(stacks->argv[1]);
+		stacks->first_number_a = first_num;
+		if (is_char_digit(stacks->argv[i]) == 1)
 			error();
-		else if (is_value_duplicate(stack->stack_a, num) == 1)
+		else if (is_value_duplicate(stacks->stack_a, num) == 1)
 			error();
-		ft_lstadd_back(&(stack->stack_a), ft_lstnew(num, 0));
+		stack_a_or_b_back(num, &(stacks->stack_a), 0);
 		i++;
-		stack->size_stack++;
 	}
 }

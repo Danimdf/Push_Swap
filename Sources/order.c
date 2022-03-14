@@ -6,13 +6,13 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 08:13:57 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 12:24:04 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	order_five(t_stack **stacks, int list_size)
+void	order_five(t_stack **stacks)
 {
 	int		min;
 	t_node	*stack;
@@ -29,17 +29,19 @@ void	order_five(t_stack **stacks, int list_size)
 		stack = stack->next;
 		rotate_a(stacks);
 	}
-	order_four(stacks, list_size);
+	order_four(stacks);
 	push_a(stacks);
+	//print_me((*stacks)->stack_a);
 }
 
-void	order_four(t_stack **stacks, int list_size)
+void	order_four(t_stack **stacks)
 {
 	int		min;
 	t_node	*stack;
 
 	stack = (*stacks)->stack_a;
 	min = min_value((*stacks)->stack_a);
+	//print_me((*stacks)->stack_a);
 	while (stack != NULL)
 	{
 		if (stack->data == min)
@@ -48,54 +50,58 @@ void	order_four(t_stack **stacks, int list_size)
 			break ;
 		}
 		stack = stack->next;
+		//print_me((*stacks)->stack_a);
 		rotate_a(stacks);
 	}
-	order_three(stacks, list_size);
+	//print_me((*stacks)->stack_a);
+	order_three(stacks);
+	//print_me((*stacks)->stack_a);
 	push_a(stacks);
+//print_me((*stacks)->stack_a);
 }
 
-void	order_three(t_stack **stk, int list_size)
+void	order_three(t_stack **stk)
 {
 	if ((*stk)->stack_a->data < (*stk)->stack_a->next->data && \
 	(*stk)->stack_a->next->data < (*stk)->stack_a->next->next->data)
 		return;
 	if ((*stk)->stack_a->next->data < (*stk)->stack_a->data)
-		next_smaller(stk, list_size);
+		next_smaller(stk);
 	else if ((*stk)->stack_a->data < (*stk)->stack_a->next->data)
 	{
 		if ((*stk)->stack_a->data < (*stk)->stack_a->next->next->data && \
 		(*stk)->stack_a->next->data > (*stk)->stack_a->next->next->data)
 		{
-			swap_a(stk, list_size);
+			swap_a(stk);
 			rotate_a(stk);
 		}
 		else
 			reverse_rotate_a(stk);
 	}
+	//print_me((*stk)->stack_a);
 }
 
-void	order_two(t_stack **stack, int list_size)
+void	order_two(t_stack **stack)
 {
 	if ((*stack)->stack_a->data > (*stack)->stack_a->next->data)
-		swap_a(stack, list_size);
+		swap_a(stack);
+	print_me((*stack)->stack_a);
 }
 
 void	order(t_stack *stack)
 {
-	int	list_size_a;
-
-	list_size_a = ft_lstsize(stack->stack_a);
+	stack->size_stack = ft_lstsize(stack->stack_a);
 	make_index_of_stack(&stack, &stack->stack_a);
 	if (sorted(&stack) == 0)
 		return ;
-	else if (list_size_a == 2)
-		order_two(&stack, list_size_a);
-	else if (list_size_a == 3)
-		order_three(&stack, list_size_a);
-	else if (list_size_a == 4)
-		order_four(&stack, list_size_a);
-	else if (list_size_a == 5)
-		order_five(&stack, list_size_a);
+	else if (stack->size_stack == 2)
+		order_two(&stack);
+	else if (stack->size_stack == 3)
+		order_three(&stack);
+	else if (stack->size_stack == 4)
+		order_four(&stack);
+	else if (stack->size_stack == 5)
+		order_five(&stack);
 	/* else if (list_size_a == 6)
 		order_six(&stack, list_size_a);
 	else if (list_size_a == 7)

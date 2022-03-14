@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:36:21 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 06:52:34 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 12:22:42 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,45 @@ void	error(void)
 	exit(1);
 }
 
-void	init_stack(t_stack *stack)
+void	init_stack(t_node **stack, int value, int index)
 {
-	stack->stack_a = NULL;
-	stack->stack_b = NULL;
-	stack->size_stack = 0;
+	(*stack) = (t_node *)malloc(sizeof(t_node));
+	if (!(*stack))
+		error();
+	(*stack)->next = NULL;
+	(*stack)->prev = NULL;
+	(*stack)->data = value;
+	printf("%d\n", index);
+	(*stack)->index = index;
+}
+
+t_stack	*create_stacks(int argc, char **argv)
+{
+	t_stack *stacks;
+
+	stacks = (t_stack *)malloc(sizeof(t_stack));
+	if (!stacks)
+		return (NULL);
+	stacks->stack_a = NULL;
+	stacks->stack_b = NULL;
+	stacks->argv = argv;
+	stacks->argc = argc;
+	return (stacks);
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack	stack;
+	t_stack	*stacks;
 
-	init_stack(&stack);
+	stacks = NULL;
+	//init_stack(&stack);
 	if (argc >= 2 || argv[1] != NULL)
-		validate_command_line(&stack, argc, argv);
+	{
+		stacks = create_stacks(argc, argv);
+		validate_command_line(stacks);
+	}
 	else
 		return (0);
-	order(&stack);
+	order(stacks);
+	free(stacks);
 }

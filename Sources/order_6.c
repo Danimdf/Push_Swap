@@ -6,13 +6,13 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:40:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/13 21:11:09 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 11:30:47 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	order_six(t_stack **stacks, int list_size)
+void	order_six(t_stack **stacks)
 {
 	int		min;
 	t_node	*stack;
@@ -29,11 +29,11 @@ void	order_six(t_stack **stacks, int list_size)
 		stack = stack->next;
 		rotate_a(stacks);
 	}
-	order_five(stacks, list_size);
+	order_five(stacks);
 	push_a(stacks);
 }
 
-void	order_seven(t_stack **stacks, int list_size)
+void	order_seven(t_stack **stacks)
 {
 	int		min;
 	t_node	*stack;
@@ -50,6 +50,6 @@ void	order_seven(t_stack **stacks, int list_size)
 		stack = stack->next;
 		rotate_a(stacks);
 	}
-	order_six(stacks, list_size);
+	order_six(stacks);
 	push_a(stacks);
 }

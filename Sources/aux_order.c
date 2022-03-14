@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:07:56 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 17:12:26 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 11:28:36 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ int	min_value(t_node *stack)
 	return (min);
 }
 
-void	next_smaller(t_stack **stk, int list_size)
+void	next_smaller(t_stack **stk)
 {
 	if ((*stk)->stack_a->next->next->data > (*stk)->stack_a->next->data && \
 	(*stk)->stack_a->next->next->data > (*stk)->stack_a->data)
-		swap_a(stk, list_size);
+		swap_a(stk);
 	else if ((*stk)->stack_a->next->next->data < \
 	(*stk)->stack_a->next->data && \
 	(*stk)->stack_a->next->next->data < (*stk)->stack_a->data)
 	{
-		swap_a(stk, list_size);
+		swap_a(stk);
 		reverse_rotate_a(stk);
 	}
 	else if ((*stk)->stack_a->next->next->data > \

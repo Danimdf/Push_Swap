@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:03:25 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 08:14:50 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 09:27:36 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	radix_sort(t_stack **stacks, t_node **stack_a)
 	i = 0;
 	size = (*stacks)->size_stack;
 	stack = (*stacks)->stack_a;
-	while (sorted(stacks) == 1)
+	while (sorted(stacks))
 	{
 		j = 0;
 		while (j < size)
@@ -42,7 +42,6 @@ void	radix_sort(t_stack **stacks, t_node **stack_a)
 			push_a(stacks);
 		i++;
 	}
-	print_me((*stacks)->stack_a);
 }
 
 int	sorted(t_stack **stacks)

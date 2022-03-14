@@ -6,13 +6,13 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 14:13:55 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/13 19:35:52 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 11:38:28 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_node	*ft_lstnew(int content, int new_index)
+t_node	*ft_lstnew(int content)
 {
 	t_node	*ptr;
 
@@ -24,7 +24,6 @@ t_node	*ft_lstnew(int content, int new_index)
 		ptr->data = content;
 		ptr->next = NULL;
 		ptr->prev = NULL;
-		ptr->index = new_index;
 	}
 	return (ptr);
 }
