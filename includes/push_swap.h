@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 15:19:17 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:34:24 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <stdio.h>
 # include "../Libft/libft.h"
 # include "stdbool.h"
-
-//oprev que ta no b vai jogar pra
 
 typedef struct s_node
 {
@@ -37,6 +35,7 @@ typedef struct s_stack
 
 int		main(int argv, char **argc);
 long	int	ft_atoim(const char *nptr);
+void	free_stacks(t_node **stack);
 
 //sort functions
 void	order(t_stack *stack);

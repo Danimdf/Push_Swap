@@ -6,11 +6,25 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:36:21 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 06:52:34 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:34:38 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	free_stacks(t_node **stack)
+{
+	t_node	*tmp;
+
+	if ((*stack) == NULL)
+		return ;
+	while ((*stack) != NULL)
+	{
+		tmp = (*stack)->next;
+		free (*stack);
+		(*stack) = tmp;
+	}
+}
 
 void	error(void)
 {
@@ -35,4 +49,6 @@ int	main(int argc, char **argv)
 	else
 		return (0);
 	order(&stack);
+	free_stacks(&(stack.stack_a));
+	free_stacks(&(stack.stack_b));
 }
