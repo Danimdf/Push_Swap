@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 14:45:02 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:19:17 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_stack
 
 int		main(int argv, char **argc);
 long	int	ft_atoim(const char *nptr);
-//void	print_me(t_node *swap);
 
 //sort functions
 void	order(t_stack *stack);

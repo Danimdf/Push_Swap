@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:03:25 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 14:49:59 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:22:23 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	radix_sort(t_stack **stacks)
 	t_node	*stack;
 	int		bits;
 
-	i = 0;
+	i = -1;
 	size = (*stacks)->size_stack;
 	stack = (*stacks)->stack_a;
 	bits = get_bits(&stack);
-	while (i++ < bits)
+	while (++i < bits)
 	{
-		j = 0;
-		while (j++ < size)
+		j = -1;
+		while (++j < size)
 		{
 			stack = (*stacks)->stack_a;
 			if (((stack->index >> i) & 1) == 1)

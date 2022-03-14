@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 14:47:00 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:18:56 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,3 @@ void	order(t_stack *stack)
 	else
 		radix_sort(&stack);
 }
-
-/* void	print_me(t_node *swap)
-{
-	while (swap)
-	{
-		printf("%d\n", swap->index);
-		swap = swap->next;
-	}
-	printf("-----------\n");
-} */
