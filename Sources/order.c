@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/13 21:11:00 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 08:13:57 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ void	order(t_stack *stack)
 
 	list_size_a = ft_lstsize(stack->stack_a);
 	make_index_of_stack(&stack, &stack->stack_a);
-	if (list_size_a == 2)
+	if (sorted(&stack) == 0)
+		return ;
+	else if (list_size_a == 2)
 		order_two(&stack, list_size_a);
 	else if (list_size_a == 3)
 		order_three(&stack, list_size_a);
@@ -94,15 +96,15 @@ void	order(t_stack *stack)
 		order_four(&stack, list_size_a);
 	else if (list_size_a == 5)
 		order_five(&stack, list_size_a);
-	else if (list_size_a == 6)
+	/* else if (list_size_a == 6)
 		order_six(&stack, list_size_a);
 	else if (list_size_a == 7)
-		order_seven(&stack, list_size_a);
+		order_seven(&stack, list_size_a); */
 	else
 		radix_sort(&stack, &stack->stack_a);
 }
 
-/* void	print_me(t_node *swap)
+void	print_me(t_node *swap)
 {
 	while (swap)
 	{
@@ -110,4 +112,4 @@ void	order(t_stack *stack)
 		swap = swap->next;
 	}
 	printf("-----------\n");
-} */
+}

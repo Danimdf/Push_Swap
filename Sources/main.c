@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:36:21 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/13 21:08:42 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 06:52:34 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error(void)
 {
-	write (2, "ERROR\n", 6);
+	write (2, "Error\n", 6);
 	exit(1);
 }
 
@@ -33,6 +33,6 @@ int	main(int argc, char **argv)
 	if (argc >= 2 || argv[1] != NULL)
 		validate_command_line(&stack, argc, argv);
 	else
-		error();
+		return (0);
 	order(&stack);
 }

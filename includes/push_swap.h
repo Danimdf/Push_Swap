@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/13 21:10:47 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 07:38:27 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_stack
 
 int		main(int argv, char **argc);
 long	int	ft_atoim(const char *nptr);
-//void	print_me(t_node *swap);
+void	print_me(t_node *swap);
 
 //sort functions
 void	order(t_stack *stack);
@@ -80,7 +80,7 @@ void	sorted_array(t_stack **stack, int **array);
 void	make_index(t_stack **stacks, t_node **stack_a, int *array);
 int		stack_ok (t_node **stack, int size, int *array);
 int		get_max_bits(t_node **stack);
-int		sorted(t_node **stack_a);
+int		sorted(t_stack **stacks);
 
 //utils linked doubly list
 void	ft_lstadd_front(t_node **lst, t_node *new);

@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:03:25 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/13 21:07:48 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 08:14:50 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	radix_sort(t_stack **stacks, t_node **stack_a)
 
 	i = 0;
 	size = (*stacks)->size_stack;
-	stack = (*stack_a);
-	while (sorted(stack_a))
+	stack = (*stacks)->stack_a;
+	while (sorted(stacks) == 1)
 	{
 		j = 0;
 		while (j < size)
@@ -38,30 +38,32 @@ void	radix_sort(t_stack **stacks, t_node **stack_a)
 			stack = temp;
 			j++;
 		}
-
 		while (ft_lstsize((*stacks)->stack_b) != 0)
 			push_a(stacks);
 		i++;
 	}
+	print_me((*stacks)->stack_a);
 }
 
-int	sorted(t_node **stack_a)
+int	sorted(t_stack **stacks)
 {
 	int		boolean;
-	t_node	*temp;
-	t_node	*slow;
+	t_node	*first;
+	t_node	*second;
 
 	boolean = 0;
-	temp = (*stack_a);
-	slow = (*stack_a)->next;
-	while (slow)
+	first = (*stacks)->stack_a;
+	second = (*stacks)->stack_a;
+	//slow = (*stack_a)->next;
+	while (second->next != NULL)
 	{
-		if (temp->index > slow->index)
+		second = second->next;
+		if (first->index > second->index)
+		{
 			boolean = 1;
-		else if (boolean == 1)
 			break ;
-		temp = temp->next;
-		slow = slow->next;
+		}
+		first = first->next;
 	}
 	return (boolean);
 }
