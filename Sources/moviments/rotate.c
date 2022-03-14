@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 17:44:34 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/13 21:12:45 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/13 22:49:55 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	rotate_a(t_stack **stack)
 
 	if ((*stack)->stack_a)
 		rmv_head_and_add_back(stack, &((*stack)->stack_a), &value_remove, &new_index);
-	write(1, "ra\n", 4);
+	write(1, "ra\n", 3);
 }
 void	rotate_b(t_stack **stack)
 {
@@ -65,11 +65,11 @@ void	rotate_b(t_stack **stack)
 
 	if ((*stack)->stack_b)
 		rmv_head_and_add_back(stack, &((*stack)->stack_a), &value_remove, &new_index);
-	write(1, "rb\n", 4);
+	write(1, "rb\n", 3);
 }
 void	rotate_r(t_stack **stack)
 {
 	rotate_a(stack);
 	rotate_b(stack);
-	write(1, "rr\n", 4);
+	write(1, "rr\n", 3);
 }
