@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 07:38:27 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:29:55 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	order_four(t_stack **stacks, int list_size);
 void	order_five(t_stack **stack, int list_size);
 void	order_six(t_stack **stacks, int list_size);
 void	order_seven(t_stack **stacks, int list_size);
-void	radix_sort(t_stack **stacks, t_node **stack_a);
+void	radix_sort(t_stack **stacks);
 
 //moviments
 void	swap_a(t_stack **stack, int list_size);
@@ -79,8 +79,8 @@ int *new_index);
 void	sorted_array(t_stack **stack, int **array);
 void	make_index(t_stack **stacks, t_node **stack_a, int *array);
 int		stack_ok (t_node **stack, int size, int *array);
-int		get_max_bits(t_node **stack);
-int		sorted(t_stack **stacks);
+int		get_bits(t_node **stack);
+int		not_sorted(t_stack **stacks);
 
 //utils linked doubly list
 void	ft_lstadd_front(t_node **lst, t_node *new);
