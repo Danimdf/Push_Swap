@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 08:55:58 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 14:17:38 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:42:42 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,10 @@ void	make_index(t_stack **stacks, t_node **stack_a, int *array)
 				stack->index = i;
 				break;
 			}
-			//printf("%d\n", stack->index);
 			stack = stack->next;
 		}
 		i++;
 	}
-	//print_me((*stacks)->stack_a);
 }
 
 void	sorted_array(t_stack **stack, int **array)

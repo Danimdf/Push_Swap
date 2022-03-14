@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:40:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 14:22:08 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:42:10 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	order_six(t_stack **stacks, int list_size)
 	}
 	order_five(stacks, list_size);
 	push_a(stacks);
-	print_me((*stacks)->stack_a);
 }
 
 void	order_seven(t_stack **stacks, int list_size)

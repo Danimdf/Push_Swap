@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:03:25 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 14:34:59 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:37:00 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	radix_sort(t_stack **stacks)
 	int		j;
 	int		size;
 	t_node	*stack;
-	//t_node	*temp;
 	int		bits;
 
 	i = 0;
@@ -31,26 +30,18 @@ void	radix_sort(t_stack **stacks)
 		while (j < size)
 		{
 			stack = (*stacks)->stack_a;
-			//temp = stack->next;
 			if (stack == NULL)
 				break ;
 			if (((stack->index >> i) & 1) == 1)
 				rotate_a(stacks);
 			else
 				push_b(stacks);
-			//stack = temp;
-			//printf("%d\n", stack->index);
 			j++;
 		}
-		//printf("%d\n", i);
-		//print_me((*stacks)->stack_a);
-		//print_me((*stacks)->stack_b);
 		while (ft_lstsize((*stacks)->stack_b) != 0)
 			push_a(stacks);
-		//print_me((*stacks)->stack_a);
 		i++;
 	}
-	print_me((*stacks)->stack_a);
 }
 
 int	not_sorted(t_stack **stacks)
@@ -92,6 +83,5 @@ int	get_bits(t_node **stack)
 	}
 	while ((max >> max_bits) != 0)
 		max_bits++;
-	//printf("%d\n", max_bits);
 	return (max_bits);
 }
