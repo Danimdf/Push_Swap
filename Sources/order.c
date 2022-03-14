@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 20:13:34 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/13 21:11:00 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	order_five(t_stack **stacks, int list_size)
 	}
 	order_four(stacks, list_size);
 	push_a(stacks);
-	print_me((*stacks)->stack_a);
 }
 
 void	order_four(t_stack **stacks, int list_size)
@@ -51,18 +50,12 @@ void	order_four(t_stack **stacks, int list_size)
 		stack = stack->next;
 		rotate_a(stacks);
 	}
-	print_me((*stacks)->stack_a);
-	print_me((*stacks)->stack_b);
-	//printf("%d\n", (*stacks)->stack_b->index);
 	order_three(stacks, list_size);
 	push_a(stacks);
-	print_me((*stacks)->stack_a);
-	print_me((*stacks)->stack_b);
 }
 
 void	order_three(t_stack **stk, int list_size)
 {
-	print_me((*stk)->stack_a);
 	if ((*stk)->stack_a->data < (*stk)->stack_a->next->data && \
 	(*stk)->stack_a->next->data < (*stk)->stack_a->next->next->data)
 		return;
@@ -79,14 +72,12 @@ void	order_three(t_stack **stk, int list_size)
 		else
 			reverse_rotate_a(stk);
 	}
-	print_me((*stk)->stack_a);
 }
 
 void	order_two(t_stack **stack, int list_size)
 {
 	if ((*stack)->stack_a->data > (*stack)->stack_a->next->data)
 		swap_a(stack, list_size);
-	print_me((*stack)->stack_a);
 }
 
 void	order(t_stack *stack)
@@ -108,10 +99,10 @@ void	order(t_stack *stack)
 	else if (list_size_a == 7)
 		order_seven(&stack, list_size_a);
 	else
-		radix_sort(&stack);
+		radix_sort(&stack, &stack->stack_a);
 }
 
-void	print_me(t_node *swap)
+/* void	print_me(t_node *swap)
 {
 	while (swap)
 	{
@@ -119,4 +110,4 @@ void	print_me(t_node *swap)
 		swap = swap->next;
 	}
 	printf("-----------\n");
-}
+} */

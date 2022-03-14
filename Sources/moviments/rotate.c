@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 17:44:34 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 17:29:55 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/13 21:12:45 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,16 @@ int *value_move, int *new_index)
 			free(temp);
 		}
 	}
-	stack_a_or_b_back(stack, value_move, stack_mv);
+	stack_a_or_b_back(stack, value_move, stack_mv, new_index);
 }
 
-void	stack_a_or_b_back(t_stack **stack, int *value_move, t_node **stack_mv)
+void	stack_a_or_b_back(t_stack **stack, int *value_move, t_node **stack_mv, \
+int *new_index)
 {
 	if ((*stack_mv) == (*stack)->stack_a)
-		ft_lstadd_back(&(*stack)->stack_a, ft_lstnew(*value_move));
+		ft_lstadd_back(&(*stack)->stack_a, ft_lstnew(*value_move, *new_index));
 	else
-		ft_lstadd_back(&(*stack)->stack_b, ft_lstnew(*value_move));
+		ft_lstadd_back(&(*stack)->stack_b, ft_lstnew(*value_move, *new_index));
 }
 
 void	rotate_a(t_stack **stack)
@@ -55,7 +56,7 @@ void	rotate_a(t_stack **stack)
 
 	if ((*stack)->stack_a)
 		rmv_head_and_add_back(stack, &((*stack)->stack_a), &value_remove, &new_index);
-	write(2, "ra\n", 4);
+	write(1, "ra\n", 4);
 }
 void	rotate_b(t_stack **stack)
 {
@@ -64,11 +65,11 @@ void	rotate_b(t_stack **stack)
 
 	if ((*stack)->stack_b)
 		rmv_head_and_add_back(stack, &((*stack)->stack_a), &value_remove, &new_index);
-	write(2, "rb\n", 4);
+	write(1, "rb\n", 4);
 }
 void	rotate_r(t_stack **stack)
 {
 	rotate_a(stack);
 	rotate_b(stack);
-	write(2, "rr\n", 4);
+	write(1, "rr\n", 4);
 }

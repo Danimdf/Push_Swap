@@ -6,7 +6,7 @@
 #    By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 06:35:11 by dmonteir          #+#    #+#              #
-#    Updated: 2022/03/12 19:02:14 by dmonteir         ###   ########.fr        #
+#    Updated: 2022/03/13 08:56:51 by dmonteir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ FILES =			./Sources/main.c \
 				./Sources/radix_sort.c \
 				./Sources/aux_order.c \
 				./Sources/order_6.c \
+				./Sources/array_index.c \
 
 LIBFT_BONUS_UTILS = ./Libft/ft_atoi.c \
 				./Libft/ft_lstadd_front.c \

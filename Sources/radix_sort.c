@@ -6,125 +6,62 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 12:03:25 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 21:34:30 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/13 21:07:48 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	make_index_of_stack(t_stack **stacks, t_node **stack)
-{
-	int		*array;
-	t_node	*temp;
-	size_t	i;
-
-	array = (int *)malloc(sizeof(int) * (*stacks)->size_stack);
-	if (!array)
-		error();
-	i = 0;
-	temp = (*stack);
-	while (temp != NULL)
-	{
-		array[i] = temp->data;
-		//temp->index = i;
-		temp = temp->next;
-		i++;
-	}
-	sorted(stacks, &array);
-	make_index(stacks, stack, array);
-	free(array);
-}
-
-void	make_index(t_stack **stacks, t_node **stack_a, int *array)
-{
-	int		i;
-	t_node	*stack;
-	int		size;
-
-	size = (*stacks)->size_stack;
-	i = 0;
-	stack = (*stack_a);
-	while (i < size)
-	{
-		//stack = (*stacks)->stack_a;
-		while (stack != NULL)
-		{
-			if (array[i] == stack->data)
-			{
-				stack->index = i;
-				break;
-			}
-			//printf("%d\n", stack->index);
-			stack = stack->next;
-		}
-		i++;
-	}
-}
-
-void	sorted(t_stack **stack, int **array)
-{
-	int	i;
-	int	j;
-	int	size;
-	int	temp;
-
-	size = (*stack)->size_stack;
-	i = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size - 1)
-		{
-			if ((*array)[j] > (*array)[j + 1])
-			{
-				temp = (*array)[j];
-				(*array)[j] = (*array)[j + 1];
-				(*array)[j + 1] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-void	radix_sort(t_stack **stacks)
+void	radix_sort(t_stack **stacks, t_node **stack_a)
 {
 	int		i;
 	int		j;
-	int		bits;
 	int		size;
 	t_node	*stack;
+	t_node	*temp;
 
 	i = 0;
-	stack = (*stacks)->stack_a;
-	bits = 0;
-	//printf("%d\n", (*stacks)->stack_a->data);
-	//printf("%d\n", stack->data);
-	size = ft_lstsize((*stacks)->stack_a);
-	//print_me(stack);
-
-	while (((*stacks)->size_stack >> bits) != 0)
-		bits++;
-	//printf("%d\n", bits);
-	while (i < bits)
+	size = (*stacks)->size_stack;
+	stack = (*stack_a);
+	while (sorted(stack_a))
 	{
 		j = 0;
 		while (j < size)
 		{
-			stack = (*stacks)->stack_a;
-			//printf("%d\n", stack->index);
+			temp = (*stack_a)->next;
+			if (temp == NULL)
+				break ;
 			if (((stack->index >> i) & 1) == 1)
 				rotate_a(stacks);
 			else
 				push_b(stacks);
-			//stack = stack->next;
+			stack = temp;
 			j++;
 		}
-		//printf("oiii1");
+
 		while (ft_lstsize((*stacks)->stack_b) != 0)
 			push_a(stacks);
 		i++;
 	}
-	//print_me(stack);
-	//print_me((*stacks)->stack_b);
+}
+
+int	sorted(t_node **stack_a)
+{
+	int		boolean;
+	t_node	*temp;
+	t_node	*slow;
+
+	boolean = 0;
+	temp = (*stack_a);
+	slow = (*stack_a)->next;
+	while (slow)
+	{
+		if (temp->index > slow->index)
+			boolean = 1;
+		else if (boolean == 1)
+			break ;
+		temp = temp->next;
+		slow = slow->next;
+	}
+	return (boolean);
 }

@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/12 21:21:08 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/13 21:10:47 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "stdbool.h"
 
 //oprev que ta no b vai jogar pra
+
 typedef struct s_node
 {
 	int				index;
@@ -36,7 +37,7 @@ typedef struct s_stack
 
 int		main(int argv, char **argc);
 long	int	ft_atoim(const char *nptr);
-void	print_me(t_node *swap);
+//void	print_me(t_node *swap);
 
 //sort functions
 void	order(t_stack *stack);
@@ -47,7 +48,7 @@ void	order_four(t_stack **stacks, int list_size);
 void	order_five(t_stack **stack, int list_size);
 void	order_six(t_stack **stacks, int list_size);
 void	order_seven(t_stack **stacks, int list_size);
-void	radix_sort(t_stack **stacks);
+void	radix_sort(t_stack **stacks, t_node **stack_a);
 
 //moviments
 void	swap_a(t_stack **stack, int list_size);
@@ -71,15 +72,20 @@ void	rmv_head_and_add_back(t_stack **stack, t_node **stack_mv, \
 int *value_move, int *new_index);
 void	rmv_back_and_add(t_node **stack_mv, int *value_move, int *new_index);
 int		min_value(t_node *stack);
-void	stack_a_or_b_front(t_stack **stack, int *value_move, t_node **stack_mv);
-void	stack_a_or_b_back(t_stack **stack, int *value_move, t_node **stack_mv);
-void	sorted(t_stack **stack, int **array);
+void	stack_a_or_b_front(t_stack **stack, int *value_move, t_node **stack_mv, \
+int *new_index);
+void	stack_a_or_b_back(t_stack **stack, int *value_move, t_node **stack_mv , \
+int *new_index);
+void	sorted_array(t_stack **stack, int **array);
 void	make_index(t_stack **stacks, t_node **stack_a, int *array);
+int		stack_ok (t_node **stack, int size, int *array);
+int		get_max_bits(t_node **stack);
+int		sorted(t_node **stack_a);
 
 //utils linked doubly list
 void	ft_lstadd_front(t_node **lst, t_node *new);
 void	ft_lstadd_back(t_node **lst, t_node *new);
-void	*ft_lstnew(int content);
+t_node	*ft_lstnew(int content, int new_index);
 t_node	*ft_lstlast(t_node *lst);
 int		ft_lstsize(t_node *lst);
 
