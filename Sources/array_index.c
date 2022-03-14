@@ -6,12 +6,11 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 08:55:58 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 14:42:42 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:47:20 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
 
 void	make_index_of_stack(t_stack **stacks, t_node **stack)
 {
@@ -51,7 +50,7 @@ void	make_index(t_stack **stacks, t_node **stack_a, int *array)
 			if (array[i] == stack->data)
 			{
 				stack->index = i;
-				break;
+				break ;
 			}
 			stack = stack->next;
 		}

@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 06:28:48 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 14:41:57 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:45:02 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ void	rmv_back_and_add(t_node **stack_mv, int *value_move, int *new_index);
 int		min_value(t_node *stack);
 void	stack_a_or_b_front(t_stack **stack, int *value_move, t_node **stack_mv, \
 int *new_index);
-void	stack_a_or_b_back(t_stack **stack, int *value_move, t_node **stack_mv , \
+void	stack_a_or_b_back(t_stack **stack, int *value_move, t_node **stack_mv, \
 int *new_index);
 void	sorted_array(t_stack **stack, int **array);
 void	make_index(t_stack **stacks, t_node **stack_a, int *array);
-int		stack_ok (t_node **stack, int size, int *array);
+int		stack_ok(t_node **stack, int size, int *array);
 int		get_bits(t_node **stack);
 int		not_sorted(t_stack **stacks);
 

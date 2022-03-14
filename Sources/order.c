@@ -6,7 +6,7 @@
 /*   By: dmonteir <dmonteir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:45:53 by dmonteir          #+#    #+#             */
-/*   Updated: 2022/03/14 14:41:40 by dmonteir         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:47:00 by dmonteir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	order_three(t_stack **stk, int list_size)
 {
 	if ((*stk)->stack_a->data < (*stk)->stack_a->next->data && \
 	(*stk)->stack_a->next->data < (*stk)->stack_a->next->next->data)
-		return;
+		return ;
 	if ((*stk)->stack_a->next->data < (*stk)->stack_a->data)
 		next_smaller(stk, list_size);
 	else if ((*stk)->stack_a->data < (*stk)->stack_a->next->data)
